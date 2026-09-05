@@ -4,7 +4,7 @@
 
 ;; Author: Callie Cameron <cjcameron7@gmail.com>
 ;; Version: 1.3
-;; URL: https://github.com/calliecameron/term-alert
+;; URL: https://codeberg.org/calliecameron/term-alert
 ;; Keywords: notifications processes
 ;; Package-Requires: ((emacs "24.0") (term-cmd "1.1") (alert "1.1") (f "0.18.2"))
 
@@ -46,7 +46,7 @@
 ;; command to enable an alert on it (an advantage over 'alert' shell
 ;; commands, which usually require you to pause the command and
 ;; restart it).  And because it uses term-cmd
-;; (https://github.com/calliecameron/term-cmd), you can alert commands
+;; (https://codeberg.org/calliecameron/term-cmd), you can alert commands
 ;; running in tmux or over SSH, too (as long as the remote shell is
 ;; set up correctly).
 ;;
