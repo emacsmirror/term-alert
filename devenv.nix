@@ -4,7 +4,7 @@
       name = "term-alert";
       author = "Callie Cameron";
       license = "GPL-3.0-or-later";
-      version = "1.3.0";
+      version = "1.4.0";
       copyrightYears = {
         start = "2014";
         end = "2026";

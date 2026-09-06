@@ -3,7 +3,7 @@ all: test
 .PHONY: test
 test:
 	rm -rf dist
-	rm -rf emacs.d/elpa/term-alert-1.3.0
+	rm -rf emacs.d/elpa/term-alert-1.4.0
 	cask package
 	cask install
 	cask exec ert-runner

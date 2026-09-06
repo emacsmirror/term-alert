@@ -1,7 +1,7 @@
 (source gnu)
 (source melpa)
 
-(package "term-alert" "1.3.0" "Notifications when commands complete in term.el and eat.")
+(package "term-alert" "1.4.0" "Notifications when commands complete in term.el and eat.")
 
 (files "*.el" "setup")
 
