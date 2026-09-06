@@ -23,7 +23,7 @@ function test-it() {
    (package-initialize)
    (package-refresh-contents)
    (package-install 'eat)
-   (package-install-file \"$(readlink -f "${THIS_DIR}/../dist/term-alert-1.3.tar")\")
+   (package-install-file \"$(readlink -f "${THIS_DIR}/../dist/term-alert-1.3.0.tar")\")
    (setq alert-default-style 'notifications)
 ${1})"
 }

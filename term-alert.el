@@ -3,10 +3,10 @@
 ;; Copyright (C) 2014-2026 Callie Cameron
 
 ;; Author: Callie Cameron <cjcameron7@gmail.com>
-;; Version: 1.3
+;; Version: 1.3.0
 ;; URL: https://codeberg.org/calliecameron/term-alert
 ;; Keywords: notifications processes
-;; Package-Requires: ((emacs "24.0") (term-cmd "1.1") (alert "1.1") (f "0.18.2"))
+;; Package-Requires: ((emacs "24.0") (term-cmd "1.1.0") (alert "1.1") (f "0.18.2"))
 
 ;; This file is not part of GNU Emacs.
 
