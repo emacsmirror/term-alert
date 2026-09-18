@@ -52,6 +52,13 @@ Set up your shell; in zsh you also get timing information in notifications.
 If using with eat, set up eat's own [shell integration](https://elpa.nongnu.org/nongnu-devel/doc/eat.html#Shell-Integration)
 before sourcing the term-alert file.
 
+## Development
+
+Uses [Devenv](https://devenv.sh/) with [this template](https://codeberg.org/calliecameron/project-template).
+
+With Devenv installed, run `devenv shell` in the project directory, or if using
+[direnv integration](https://devenv.sh/integrations/direnv/), run `direnv allow`.
+
 ## AI Policy
 
 Use of generative AI is not permitted in this project.
