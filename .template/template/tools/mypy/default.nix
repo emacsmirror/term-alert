@@ -11,20 +11,21 @@ let
     mkIf
     mkOption
     ;
-  inherit (lib.attrsets) genAttrs' nameValuePair;
   inherit (lib.strings) escapeShellArg join;
   inherit (lib.types) toml;
-  inherit (templateLib) localRelPath;
+  inherit (templateLib.types) relativePath;
 
   cfg = config.template.tools.mypy;
   python = config.template.languages.python;
+
+  targetVersion = python.minVersion;
 in
 {
   options.template.tools.mypy = {
     enable = mkEnableOption "enable";
 
     stubDir = mkOption {
-      type = localRelPath;
+      type = relativePath;
       default = "stubs";
     };
 
@@ -35,22 +36,19 @@ in
   };
 
   config = mkIf cfg.enable {
-    git-hooks.hooks = genAttrs' python.versions (
-      version:
-      nameValuePair "mypy-${version}" {
-        enable = true;
-        name = "python ${version}: typecheck";
-        entry = join " " [
-          "${getExe config.languages.python.uv.package}"
-          "run"
-          "mypy"
-          "--python-version"
-          "${escapeShellArg version}"
-        ];
-        types_or = python.fileTags;
-        require_serial = true;
-      }
-    );
+    git-hooks.hooks.mypy = {
+      enable = true;
+      name = "python: typecheck";
+      entry = join " " [
+        "${getExe config.languages.python.uv.package}"
+        "run"
+        "mypy"
+        "--python-version"
+        "${escapeShellArg targetVersion}"
+      ];
+      types_or = python.fileTags;
+      require_serial = true;
+    };
 
     template = {
       languages.python = {
@@ -65,7 +63,7 @@ in
         mypy_path = cfg.stubDir;
         namespace_packages = !python.isPackage;
         pretty = true;
-        python_version = python.maxVersion;
+        python_version = targetVersion;
         scripts_are_modules = true;
         strict = true;
       };
