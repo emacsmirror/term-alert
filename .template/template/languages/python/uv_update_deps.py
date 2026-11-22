@@ -6,7 +6,7 @@ import sys
 import tomllib
 from abc import ABC, abstractmethod
 from dataclasses import dataclass
-from typing import TYPE_CHECKING, cast, override
+from typing import TYPE_CHECKING, override
 
 from frozendict import frozendict
 from packaging import requirements
@@ -89,10 +89,7 @@ class UV:
 
         j = json.loads(UV._uv("pip", "list", "--format=json", *extra_args))
 
-        return cast(
-            "frozendict[str, str]",
-            frozendict({p["name"]: p["version"] for p in j}),
-        )
+        return frozendict({p["name"]: p["version"] for p in j})
 
     @staticmethod
     def list_outdated() -> frozenset[str]:
