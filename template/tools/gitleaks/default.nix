@@ -49,7 +49,14 @@ in
       enable = true;
       name = "general: check for committed secrets";
       package = cfg.package;
-      entry = "${getExe hooks.gitleaks.package} git --pre-commit --redact --staged --verbose";
+      entry = getExe hooks.gitleaks.package;
+      args = [
+        "git"
+        "--pre-commit"
+        "--redact"
+        "--staged"
+        "--verbose"
+      ];
       pass_filenames = false;
     };
 
